@@ -28,6 +28,7 @@ To make these commands globally accessible from anywhere in your terminal, follo
    Navigate to the folder and execute the `labsetup.sh` script. This will make all scripts executable and bind them to short commands (aliases) in your `.bashrc` file.
    ```bash
    cd ~/lab_shortcuts
+   chmod u+x labsetup.sh
    ./labsetup.sh
    ```
 
