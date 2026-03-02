@@ -10,11 +10,18 @@ These tools are designed to work recursively, meaning you can run them from a ma
 
 To make these commands globally accessible from anywhere in your terminal, follow these steps:
 
-1. **Create the shortcut directory:**
-   Ensure all `.sh` files are placed in a folder named `lab_shortcuts` in your home directory.
+1. **Get the scripts:**
+   You can either clone this repository directly or set up the folder manually. Ensure the folder is named `lab_shortcuts` and is placed in your home directory.
+
+   **Option A: Clone via Git (Recommended)**
+   ```bash
+   git clone https://github.com/1n-finity/lab_shortcuts.git ~/lab_shortcuts
+   ```
+
+   **Option B: Manual Setup**
    ```bash
    mkdir -p ~/lab_shortcuts
-   # Move the scripts into this folder
+   # Move the downloaded .sh files into this folder
    ```
 
 2. **Run the setup script:**
