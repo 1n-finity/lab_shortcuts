@@ -81,6 +81,13 @@ Once set up, you can use the following commands from any directory in your termi
   makelobster
   ```
 
+### 5. `nvuse`
+* **What it does:** Provides a clear, at-a-glance summary of GPU resource usage. It first displays the total and available memory across all detected GPUs. Below that, it lists the active compute processes, showing the PID, user, memory consumed, and the command being run.
+* **How to use:** Run it anytime to check if the node has enough free resources before submitting a new job.
+  ```bash
+  nvuse
+  ```
+
 ---
 
 **Note:** If you add new scripts to the `~/lab_shortcuts` folder in the future, simply re-run `./labsetup.sh` and `source ~/.bashrc` to register the new commands.
