@@ -20,11 +20,16 @@ for filepath in "$SHORTCUTS_DIR"/*; do
     # Skip if it's a directory or not a regular file
     [ -f "$filepath" ] || continue
     
+    # Get the raw filename
+    filename=$(basename "$filepath")
+    
+    # Skip the README.md file
+    if [ "$filename" == "README.md" ]; then
+        continue
+    fi
+    
     # 3. Make the file executable
     chmod +x "$filepath"
-    
-    # Get the raw filename (e.g., "makedos.sh")
-    filename=$(basename "$filepath")
     
     # Strip the extension to create a clean alias name (e.g., "makedos")
     alias_name="${filename%.*}"
@@ -33,7 +38,6 @@ for filepath in "$SHORTCUTS_DIR"/*; do
     alias_line="alias $alias_name='$filepath'"
     
     # 4. Check if the alias already exists in .bashrc
-    # Using regex ^alias name= to ensure we match the exact alias definition
     if grep -q "^alias ${alias_name}=" "$BASHRC_FILE"; then
         echo "  [-] Alias '$alias_name' already exists in .bashrc. Skipping."
     else
