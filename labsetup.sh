@@ -14,25 +14,20 @@ if [ ! -d "$SHORTCUTS_DIR" ]; then
     exit 1
 fi
 
-# 2. Loop through all files in the directory
-for filepath in "$SHORTCUTS_DIR"/*; do
+# 2. Loop through ONLY .sh files in the directory
+for filepath in "$SHORTCUTS_DIR"/*.sh; do
     
-    # Skip if it's a directory or not a regular file
+    # Check if it's a valid file (this prevents errors if zero .sh files exist)
     [ -f "$filepath" ] || continue
-    
-    # Get the raw filename
-    filename=$(basename "$filepath")
-    
-    # Skip the README.md file
-    if [ "$filename" == "README.md" ]; then
-        continue
-    fi
     
     # 3. Make the file executable
     chmod +x "$filepath"
     
-    # Strip the extension to create a clean alias name (e.g., "makedos")
-    alias_name="${filename%.*}"
+    # Get the raw filename
+    filename=$(basename "$filepath")
+    
+    # Strip the .sh extension to create a clean alias name (e.g., "makedos")
+    alias_name="${filename%.sh}"
     
     # Formulate the alias string
     alias_line="alias $alias_name='$filepath'"
