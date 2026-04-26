@@ -88,6 +88,34 @@ Once set up, you can use the following commands from any directory in your termi
   nvuse
   ```
 
+### 6. `vasp_jobs_setup`
+* **What it does:** Automates the creation of VASP job directories. It reads all `POSCAR_*` files from an `input_poscar` directory, creates individual folders for each run in a `vasp_jobs` directory, and tracks their absolute paths in `file_paths.txt`.
+* **How to use:** 
+  ```bash
+  vasp_jobs_setup
+  ```
+
+### 7. `cif2poscar`
+* **What it does:** Reads a CIF file and writes it to a VASP POSCAR format using `pymatgen`.
+* **How to use:** 
+  ```bash
+  cif2poscar <input_file.cif> <output_file.poscar>
+  ```
+
+### 8. `contcar2cif`
+* **What it does:** Uses `vaspeng` to run checks and converts `CONTCAR` structures back to `CIF` format after VASP optimizations using `pymatgen`.
+* **How to use:** 
+  ```bash
+  contcar2cif
+  ```
+
+### 9. `generate_defects`
+* **What it does:** Generates substituted structures for DFT using Symmetry Operations. Uses `pymatgen` to replace atoms with dopants.
+* **How to use:** 
+  ```bash
+  generate_defects -f <input.cif> -t <target_element> -d <dopant_element> -n <number_of_atoms>
+  ```
+
 ---
 
 **Note:** If you add new scripts to the `~/lab_shortcuts` folder in the future, simply re-run `./labsetup.sh` and `source ~/.bashrc` to register the new commands.
