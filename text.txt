@@ -1,0 +1,1 @@
+nohup python3 gpu_monitor.py > monitor.log 2>&1 &
